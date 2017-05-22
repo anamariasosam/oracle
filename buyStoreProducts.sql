@@ -1,4 +1,4 @@
-create or replace PROCEDURE SP_buyStoreProducts( v_quantity IN NUMBER, v_store_id IN VARCHAR2, dserror out varchar2)
+CREATE or REPLACE PROCEDURE SP_buyStoreProducts( v_quantity IN NUMBER, v_store_id IN VARCHAR2, dserror out varchar2)
 IS
 
 CURSOR products IS SELECT cdproducto, psventa FROM salvarez_prueba.TSIM_PROD_X_EMPRESA where cdempresa = v_store_id;
@@ -25,7 +25,7 @@ BEGIN
       v_PSVALOR_UNITARIO_VENTA
       );
       v_price := v_price - (v_price * 0.2);
-      dbms_output.put_line(v_price); 
+      dbms_output.put_line(v_price);
       -- SALVAREZ_PRUEBA.SP_CAMBIO_VALOR_PROD(v_product, v_price, v_dserror);
     END LOOP;
   CLOSE products;
